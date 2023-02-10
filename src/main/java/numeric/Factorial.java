@@ -27,10 +27,13 @@ public class Factorial{
 	/**
 	 * This functions computes the factorial of an inputted integer X and returns the result as a double.
 	 */
-	public static double compute(int x){
+	public static double compute(int x) throws IllegalStateException{
  		double i = 1;
 		if((x == 0) || (x == 1)){
                         return 1;
+                }
+                if(x < 0){
+                    throw new IllegalStateException();
                 }
  		if(x != 0){
         		for(int j = 2; j <= x; j++){

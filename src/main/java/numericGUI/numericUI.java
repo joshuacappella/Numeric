@@ -277,14 +277,15 @@ public class numericUI extends javax.swing.JFrame {
     private void FCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FCloseButtonActionPerformed
         FactorialDialog.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_FCloseButtonActionPerformed
-
+    
+    /**
+     * When the compute button is pressed for the factorial class.
+     * @param evt
+     */
     private void FComputeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FComputeButtonActionPerformed
        try{
             String inString = FInput.getText();
             int omega = Integer.parseInt(inString);
-            if(omega < 0){
-                throw new IllegalStateException();
-            }
             double Fresult = numeric.Factorial.compute(omega);
             FOutputTextArea.setText("The factorial is: " + Fresult);
         }
@@ -299,17 +300,26 @@ public class numericUI extends javax.swing.JFrame {
             FOutputTextArea.setText("You've caught a general exception.");
         }
     }//GEN-LAST:event_FComputeButtonActionPerformed
-
+    /**
+     * Sets the GCD Dialog window to be visible
+     * @param evt 
+     */
     private void GCDMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GCDMenuItemActionPerformed
         GCDDialog.pack();
         GCDDialog.setVisible(true);
     }//GEN-LAST:event_GCDMenuItemActionPerformed
-
+    /**
+     * Sets the Factorial Dialog window to be visible
+     * @param evt 
+     */
     private void FactorialMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FactorialMenuItemActionPerformed
         FactorialDialog.pack();
         FactorialDialog.setVisible(true);
     }//GEN-LAST:event_FactorialMenuItemActionPerformed
-
+    /**
+     * Hides the GCD Dialog window
+     * @param evt 
+     */
     private void GCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GCloseButtonActionPerformed
         GCDDialog.setVisible(false);
     }//GEN-LAST:event_GCloseButtonActionPerformed
@@ -317,11 +327,19 @@ public class numericUI extends javax.swing.JFrame {
     private void FInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FInputActionPerformed
-
+    /**
+     * Closes application
+     * @param evt 
+     */
     private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_ExitMenuItemActionPerformed
-
+    /**
+     * When GCD's compute button is pressed, the inputted strings are parsed for
+     * integers, the factorial is computed, and the result is output.
+     * Error checking is included.
+     * @param evt 
+     */
     private void GComputeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GComputeButtonActionPerformed
         try{
             String inStringOne = GInputOne.getText();
