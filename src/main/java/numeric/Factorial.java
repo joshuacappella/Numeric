@@ -29,9 +29,6 @@ public class Factorial{
 	 */
 	public static double compute(int x){
  		double i = 1;
-		if(x < 0){
-			return -1;
-		}
 		if((x == 0) || (x == 1)){
                         return 1;
                 }

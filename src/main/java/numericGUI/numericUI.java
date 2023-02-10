@@ -150,6 +150,11 @@ public class numericUI extends javax.swing.JFrame {
                 FComputeButtonActionPerformed(evt);
             }
         });
+        FComputeButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                FComputeButtonKeyPressed(evt);
+            }
+        });
 
         FInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,10 +279,25 @@ public class numericUI extends javax.swing.JFrame {
     }//GEN-LAST:event_FCloseButtonActionPerformed
 
     private void FComputeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FComputeButtonActionPerformed
-        String inString = FInput.getText();
-        int omega = Integer.parseInt(inString);
-        double Fresult = numeric.Factorial.compute(omega);
-        FOutputTextArea.setText("The factorial is: " + Fresult);
+       try{
+            String inString = FInput.getText();
+            int omega = Integer.parseInt(inString);
+            if(omega < 0){
+                throw new IllegalStateException();
+            }
+            double Fresult = numeric.Factorial.compute(omega);
+            FOutputTextArea.setText("The factorial is: " + Fresult);
+        }
+        catch(IllegalArgumentException i){
+            FOutputTextArea.setText("Input a positive integer.");
+        }
+        catch(IllegalStateException j){
+            FOutputTextArea.setText("Negative factorials are undefined.\n"
+                    + "Input a positive integer.");
+        }
+        catch(Exception g){
+            FOutputTextArea.setText("You've caught a general exception.");
+        }
     }//GEN-LAST:event_FComputeButtonActionPerformed
 
     private void GCDMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GCDMenuItemActionPerformed
@@ -303,13 +323,25 @@ public class numericUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitMenuItemActionPerformed
 
     private void GComputeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GComputeButtonActionPerformed
-        String inStringOne = GInputOne.getText();
-        String inStringTwo = GInputTwo.getText();
-        int alpha = Integer.parseInt(inStringOne);
-        int beta = Integer.parseInt(inStringTwo);
-        int result = numeric.GCD.compute(alpha, beta);
-        GOutputTextArea.setText("The GCD is: " + result);
+        try{
+            String inStringOne = GInputOne.getText();
+            String inStringTwo = GInputTwo.getText();
+            int alpha = Integer.parseInt(inStringOne);
+            int beta = Integer.parseInt(inStringTwo);
+            int result = numeric.GCD.compute(alpha, beta);
+            GOutputTextArea.setText("The GCD is: " + result);
+        }
+        catch(NumberFormatException f){
+            GOutputTextArea.setText("Please enter two integers.");
+        }
+        catch(Exception z){
+            GOutputTextArea.setText("You've caught a generic exception");
+        }
     }//GEN-LAST:event_GComputeButtonActionPerformed
+
+    private void FComputeButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FComputeButtonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FComputeButtonKeyPressed
 
     /**
      * @param args the command line arguments
