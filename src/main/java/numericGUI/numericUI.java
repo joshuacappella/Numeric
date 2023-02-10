@@ -4,6 +4,8 @@
  */
 package numericGUI;
 
+import numeric.FactorialException;
+
 /**
  *
  * @author Joshua Cappella
@@ -292,7 +294,7 @@ public class numericUI extends javax.swing.JFrame {
         catch(IllegalArgumentException i){
             FOutputTextArea.setText("Input a positive integer.");
         }
-        catch(IllegalStateException j){
+        catch(FactorialException j){
             FOutputTextArea.setText("Negative factorials are undefined.\n"
                     + "Input a positive integer.");
         }
