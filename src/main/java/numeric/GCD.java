@@ -41,13 +41,9 @@ public class GCD{
 		else if(x == 0){
                         return y;
                 }
-		else if(x > y){
-			return compute((x%y),y);
-		}
-		else if(y > x){
+                else {
 			return compute((y%x),x);
 		}
-		return -1;
 	}
 
 	/**
