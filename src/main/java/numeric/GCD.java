@@ -21,7 +21,7 @@ public class GCD{
 
 	/**
 	 * This class implements the calculation of the Greatest Common Divisor
-	 * for an input of two integers, x and y.
+	 * for an input of two integers, x and y. 
 	 */
 
 	public static int compute(int x, int y){
